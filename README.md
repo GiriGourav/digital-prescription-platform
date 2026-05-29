@@ -1,146 +1,151 @@
-# 🏥 Digital Healthcare Platform
+# 🏥 Digital Prescription Platform
 
-A full-stack healthcare management system built using **Spring Boot**, **Spring Security**, **Thymeleaf**, **Hibernate/JPA**, and **MySQL**.
+A full-stack healthcare management system built using **Spring Boot**, **Spring Security**, **Thymeleaf**, **Hibernate/JPA**, and **PostgreSQL**.
 
-The platform enables patients to book appointments, doctors to manage prescriptions, and administrators to approve doctors before they can access the system.
+🌐 Live Demo: https://digital-prescription-platform.onrender.com/
+
+📂 GitHub Repository: https://github.com/GiriGourav/digital-prescription-platform
 
 ---
 
-## 🚀 Features
+## 🚀 Features Implemented
 
 ### 👤 Authentication & Authorization
-
-* Secure Login & Registration
-* Role-Based Access Control
-* Admin, Doctor, and Patient Roles
-* Password Encryption using BCrypt
+- User Registration & Login
+- Role-Based Access Control
+- Admin, Doctor, and Patient Roles
+- Secure Password Encryption using BCrypt
 
 ### 👨‍⚕️ Doctor Features
-
-* Create Digital Prescriptions
-* Edit Prescriptions
-* Delete Prescriptions
-* View Appointment Requests
-* Approve/Reject Appointments
-* Search Prescriptions by Patient Name
-* Download Prescriptions as PDF
+- Create Digital Prescriptions
+- Edit Prescriptions
+- Delete Prescriptions
+- View Appointment Requests
+- Approve/Reject Appointments
+- Search Prescriptions by Patient Name
+- Download Prescriptions as PDF
 
 ### 🧑 Patient Features
-
-* Register & Login
-* Book Appointments
-* Select Available Doctors
-* View Appointment History
-* View Prescription History
-* Download Prescription PDFs
+- Register & Login
+- Book Appointments
+- Select Available Doctors
+- View Appointment History
+- View Prescription History
+- Download Prescription PDFs
 
 ### 🛡️ Admin Features
-
-* Admin Dashboard
-* View All Registered Doctors
-* Approve Doctor Accounts
-* Remove Doctors
-* Monitor Platform Activity
+- Admin Dashboard
+- View All Registered Doctors
+- Approve Doctor Accounts
+- Remove Doctors
+- Manage Platform Users
 
 ### 📄 Prescription Management
-
-* Digital Prescription Creation
-* PDF Generation & Download
-* Patient Medical History Tracking
+- Digital Prescription Creation
+- Medical History Tracking
+- PDF Export Functionality
 
 ### 📅 Appointment Management
-
-* Appointment Booking
-* Doctor Selection
-* Appointment Status Tracking
-* Pending / Approved / Rejected Workflow
-
----
-
-## 🏗️ Tech Stack
-
-### Backend
-
-* Java 17+
-* Spring Boot
-* Spring Security
-* Spring Data JPA
-* Hibernate
-
-### Frontend
-
-* Thymeleaf
-* HTML5
-* CSS3
-* Bootstrap 5
-* Bootstrap Icons
-
-### Database
-
-* MySQL
-
-### Tools
-
-* Maven
-* IntelliJ IDEA / Eclipse
-* Git & GitHub
+- Appointment Booking
+- Doctor Selection
+- Appointment Status Tracking
+- Pending / Approved / Rejected Workflow
 
 ---
 
-## 📂 Project Structure
+# 🏗️ Tech Stack Used
 
+## Backend
+- Java 21
+- Spring Boot 3
+- Spring Security
+- Spring Data JPA
+- Hibernate
+
+## Frontend
+- Thymeleaf
+- HTML5
+- CSS3
+- Bootstrap 5
+- Bootstrap Icons
+
+## Database
+- PostgreSQL
+
+## Deployment
+- Render
+- Render PostgreSQL
+
+## Tools
+- Maven
+- Git
+- GitHub
+- IntelliJ IDEA
+
+---
+
+# 📂 Project Structure
+
+```text
 src/main/java
+├── config
 ├── controller
 ├── entity
 ├── repository
 ├── service
-├── config
 
 src/main/resources
 ├── templates
 ├── static
-│ ├── css
-│ ├── js
-│ └── images
+│   ├── css
+│   ├── js
+│   └── images
 └── application.properties
+```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Project Setup Instructions
 
-### 1. Clone Repository
+## 1. Clone Repository
 
 ```bash
-git clone https://github.com/your-username/digital-healthcare-platform.git
-cd digital-healthcare-platform
+git clone https://github.com/GiriGourav/digital-prescription-platform.git
+cd digital-prescription-platform
 ```
 
-### 2. Configure MySQL
+---
 
-Create a database:
+## 2. Configure Database
 
-```sql
-CREATE DATABASE healthcare_db;
-```
-
-Update application.properties:
+Create a PostgreSQL database and update:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/healthcare_db
-spring.datasource.username=root
+spring.datasource.url=jdbc:postgresql://localhost:5432/prescription_db
+spring.datasource.username=postgres
 spring.datasource.password=your_password
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
 
-### 3. Run Project
+---
+
+## 3. Build Project
 
 ```bash
-mvn spring-boot:run
+./mvnw clean install
 ```
 
-Application runs on:
+---
+
+## 4. Run Application
+
+```bash
+./mvnw spring-boot:run
+```
+
+Application will start at:
 
 ```text
 http://localhost:8080
@@ -148,121 +153,120 @@ http://localhost:8080
 
 ---
 
-## 🔑 Default Admin Account
+# ☁️ Deployment
 
-Create an admin account using CommandLineRunner:
+This project is deployed on Render.
 
-```java
-Email: admin@gmail.com
-Password: admin123
+### Build Command
+
+```bash
+chmod +x mvnw && ./mvnw clean package -DskipTests
+```
+
+### Start Command
+
+```bash
+java -jar target/digital-prescription-platform-0.0.1-SNAPSHOT.jar
 ```
 
 ---
 
-## 📊 Database Entities
+# 📊 Database Entities
 
-### User
+## User
+- id
+- name
+- email
+- password
+- role
+- approved
 
-* id
-* name
-* email
-* password
-* role
-* approved
+## Prescription
+- id
+- doctorName
+- patientName
+- patientEmail
+- diagnosis
+- medicines
+- notes
+- date
 
-### Prescription
-
-* id
-* doctorName
-* patientName
-* patientEmail
-* diagnosis
-* medicines
-* notes
-* date
-
-### Appointment
-
-* id
-* patientName
-* patientEmail
-* doctorName
-* appointmentDate
-* status
+## Appointment
+- id
+- patientName
+- patientEmail
+- doctorName
+- appointmentDate
+- status
 
 ---
 
-## 🔒 Security
+# 🔒 Security Features
 
-* Spring Security Authentication
-* BCrypt Password Hashing
-* Role-Based Authorization
-* Doctor Approval Workflow
-* Protected Routes
-
----
-
-## 🎯 Future Enhancements
-
-* Email Notifications
-* Appointment Reminders
-* Doctor Profile Pictures
-* Analytics Dashboard
-* REST API Integration
-* JWT Authentication
-* Cloud Deployment
-* Telemedicine Support
-* Payment Gateway Integration
+- Spring Security Authentication
+- BCrypt Password Hashing
+- Role-Based Authorization
+- Doctor Approval Workflow
+- Protected Routes
 
 ---
 
-## 📸 Screenshots
+# 🎯 Future Enhancements
 
-Add screenshots of:
-
-* Home Page
-* Login Page
-* Register Page
-* Doctor Dashboard
-* Patient Dashboard
-* Admin Dashboard
-* Appointment Booking
-* Prescription Management
+- Email Notifications
+- Appointment Reminders
+- REST API Support
+- JWT Authentication
+- Docker Deployment
+- CI/CD Pipeline
+- Analytics Dashboard
+- Telemedicine Integration
 
 ---
 
-## 🌟 Key Highlights
+# 🌟 Key Highlights
 
-✔ Role-Based Authentication
+✅ Role-Based Authentication
 
-✔ Admin Approval for Doctors
+✅ Doctor Approval System
 
-✔ Appointment Booking System
+✅ Appointment Booking Workflow
 
-✔ Prescription Management
+✅ Prescription Management
 
-✔ PDF Download Support
+✅ PDF Generation
 
-✔ Secure Password Encryption
+✅ PostgreSQL Integration
 
-✔ Responsive Bootstrap UI
+✅ Spring Security
 
-✔ MySQL Database Integration
+✅ Cloud Deployment on Render
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Gourav Giri**
 
-B.Tech CS Student | Java Backend Developer
+B.Tech Computer Science Engineering
 
-* Java
-* Spring Boot
-* Hibernate
-* MySQL
-* Data Structures & Algorithms
+Java Backend Developer
+
+### Skills
+- Java
+- Spring Boot
+- Hibernate
+- PostgreSQL
+- Data Structures & Algorithms
+
+GitHub:
+https://github.com/GiriGourav
+
+LinkedIn:
+(Add Your LinkedIn Profile)
 
 ---
 
-⭐ If you found this project useful, consider giving it a star on GitHub.
+## ⭐ Support
+
+If you found this project useful, please consider giving it a **Star ⭐** on GitHub.
