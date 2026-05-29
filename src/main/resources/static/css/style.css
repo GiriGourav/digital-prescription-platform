@@ -1,0 +1,69 @@
+:root
+{
+    --primary:#2563EB;
+    --secondary:#06B6D4;
+    --success:#10B981;
+    --danger:#EF4444;
+    --background:#F8FAFC;
+}
+
+
+body
+{
+    background:var(--background);
+    font-family:'Segoe UI',sans-serif;
+}
+
+.navbar
+{
+    background:linear-gradient( to right,  var(--primary),var(--secondary) );
+}
+
+.navbar-brand{
+    color:white !important;
+    font-weight:bold;
+    font-size:24px;
+}
+
+.card
+{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.dashboard-card{
+    transition:.3s;
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+}
+
+.btn
+{
+    border-radius:12px;
+}
+
+.form-control,
+.form-select
+{
+
+
+    border-radius:12px;
+    padding:12px;
+}
+
+.table thead
+{
+    background:#2563EB;
+    color:white;
+}
+
+
+.page-title
+{
+    color:#2563EB;
+    font-weight:700;
+}

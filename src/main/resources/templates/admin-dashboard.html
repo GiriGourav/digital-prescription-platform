@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet"
+        th:href="@{/css/style.css}">
+  <style>
+
+    body{
+        background:#f4f7fc;
+    }
+    .navbar
+    {
+        background:linear-gradient(to right,#6610f2,#0d6efd);
+    }
+    .navbar-brand
+    {
+        color:white !important;
+        font-weight:bold;
+    }
+    .dashboard-card{
+        border:none;
+        border-radius:20px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        transition:0.3s;
+    }
+
+    .dashboard-card:hover
+    {
+          transform:translateY(-5px);
+    }
+    .icon-box{
+        width:70px;
+        height:70px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:white;
+        font-size:30px;
+        margin:auto;
+    }
+
+
+    .pending
+    {
+        background:#ffc107;
+    }
+
+    .approved
+    {
+        background:#198754;
+    }
+
+    .manage{
+        background:#0d6efd;
+    }
+
+  </style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand">
+      <i class="bi bi-heart-pulse-fill"></i>
+      Digital Healthcare
+    </a>
+    <div>
+      <a href="/logout"
+         class="btn btn-danger">
+        Logout
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card dashboard-card p-4 text-center">
+        <div class="icon-box pending">
+          <i class="bi bi-hourglass-split"></i>
+        </div>
+         <h4 class="mt-3">
+          Pending Doctors
+        </h4>
+
+        <h2 th:text="${pendingDoctors}"></h2>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card dashboard-card p-4 text-center">
+        <div class="icon-box approved">
+
+
+          <i class="bi bi-check-circle"></i>
+        </div>
+
+        <h4 class="mt-3">
+          Approved Doctors
+        </h4>
+        <h2 th:text="${approvedDoctors}"></h2>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-4">
+
+      <div class="card dashboard-card p-4 text-center">
+        <div class="icon-box manage">
+          <i class="bi bi-people"></i>
+        </div>
+        <h4 class="mt-3">
+          Manage Doctors
+        </h4>
+
+        <a href="/admin/doctors"
+           class="btn btn-primary">
+          Open
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+
+</html>
