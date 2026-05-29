@@ -263,7 +263,7 @@ GitHub:
 https://github.com/GiriGourav
 
 LinkedIn:
-(Add Your LinkedIn Profile)
+https://www.linkedin.com/in/gourav-giri/
 
 ---
 
